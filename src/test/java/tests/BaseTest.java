@@ -12,6 +12,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
+
+import java.io.File;
 import java.lang.reflect.Method;
 import java.time.Duration;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -22,8 +24,12 @@ public class BaseTest {
 
     @BeforeSuite
     public void setupExtentReport() {
+        File reportDir = new File("target/extent-reports");
+        if (!reportDir.exists()) {
+            reportDir.mkdirs();  // Create directory if it doesn't exist
+        }
         ExtentReports extent = ExtentTestManager.getInstance();
-        ExtentSparkReporter sparkReporter = new ExtentSparkReporter("test-output/ExtentReport.html");
+        ExtentSparkReporter sparkReporter = new ExtentSparkReporter("target/extent-reports/index.html");
         sparkReporter.config().setTheme(Theme.DARK);
         sparkReporter.config().setDocumentTitle("Automation Test Report");
         sparkReporter.config().setReportName("Jupiter Toys Test Execution");
