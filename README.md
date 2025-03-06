@@ -65,7 +65,7 @@ Open the **index.html** file in a browser to view the results.
 2. Populate mandatory fields.
 3. Click the submit button.
 4. Validate the successful submission message.
- **Note:** This test runs **5 times** to ensure a 100% pass rate.
+ **Note:** This test runs **5 times** with a DataProvider to ensure a 100% pass rate.
 
 ### **Test Case 3: Cart and Checkout Validation**
 1. Buy **2 Stuffed Frog**, **5 Fluffy Bunny**, and **3 Valentine Bear**.
